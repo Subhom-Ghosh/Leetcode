@@ -4,8 +4,8 @@ public:
         int n=height.size();
         vector<int>pref(n);
         vector<int>suff(n);
-        int res=0;
-        
+        int result = 0;
+
         pref[0]=height[0];
         for(int i=1;i<n;i++){
             pref[i]=max(pref[i-1],height[i]);
@@ -15,8 +15,8 @@ public:
             suff[i]=max(suff[i+1],height[i]);
         }
         for(int i=0;i<n;i++){
-            res+=min(pref[i],suff[i])-height[i];
+            result+=min(suff[i],pref[i])-height[i];
         }
-        return res;
+        return result;
     }
 };
